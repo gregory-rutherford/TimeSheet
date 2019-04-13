@@ -9,10 +9,8 @@ var config = {
 };
 firebase.initializeApp(config);
 
-//firebase variable
 var database = firebase.database();
 
-//gathers user data from the from and store in variable
 $(document).on('click', '#add-user', function() {
 	event.preventDefault();
 	var name = $('#name-input').val().trim();
@@ -25,3 +23,8 @@ $(document).on('click', '#add-user', function() {
 	var rate = $('#rate-input').val().trim();
 	console.log(rate);
 });
+
+var now = moment().valueOf();
+console.log(now);
+var date = moment.unix(now).format('dddd, MMMM Do YYYY, h:mm:ss a');
+console.log(date);
