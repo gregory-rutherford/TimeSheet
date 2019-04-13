@@ -18,8 +18,13 @@
     var role = $("#role-input").val().trim();
     console.log(role);
     var startDate = $("#startDate-input").val().trim();
-    moment(startDate, "M/D/YYYY").valueOf();
     console.log(startDate);
+    var now = moment(startDate, "YYYY-MM-DD").unix();
+     console.log(now);
+     var date = moment.unix(now).format("MMMM Do YYYY");
+    console.log(date);
     var rate = $("#rate-input").val().trim();
     console.log(rate);
-  })
+
+  });
+
