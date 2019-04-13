@@ -12,6 +12,7 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 
+
   $(document).on("click", "#add-user", function(){
     event.preventDefault();
     var name = $("#name-input").val().trim();
@@ -42,27 +43,16 @@ var database = firebase.database();
  
   function makeRow (response){
     var date = moment.unix(response.date);
-    var current = moment();
-    var monthsDiff = current.diff(date, "months");
+    var monthsDiff = moment().diff(date, "months");
     var nDate = moment.unix(response.date).format("L");
-      $("#name-resp").append(`</br>
-      <span>${response.name}</span>
-      `);
-      $("#role-resp").append(`</br>
-      <span>${response.role}</span>
-      `);
-      $("#date-resp").append(`</br>
-      <span>${nDate}</span>
-      `);
-      $("#rate-resp").append(`</br>
-      <span>${response.rate}</span>
-      `);
-      $("#worked-resp").append(`</br>
-      <span>${monthsDiff}</span>
-      `);
-      $("#earn-resp").append(`</br>
-      <span>$${(monthsDiff*response.rate)}</span>
-      `);
+      $("#changes").append(`<tr>
+      <td>${response.name}</td>
+      <td>${response.role}</td>
+      <td>${nDate}</td>
+      <td>${response.rate}</td>
+      <td>${monthsDiff}</td>
+      <td>$${(monthsDiff*response.rate)}</td>
+    </tr>`);
   }
  
   database.ref().on("child_added", function(childSnapshot) {
