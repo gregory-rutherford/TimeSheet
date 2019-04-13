@@ -10,3 +10,8 @@
   firebase.initializeApp(config);
 
   var database = firebase.database();
+
+  var now = moment().valueOf();
+  console.log(now);
+  var date = moment.unix(now).format("dddd, MMMM Do YYYY, h:mm:ss a");
+  console.log(date);
