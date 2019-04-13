@@ -23,3 +23,9 @@
     var rate = $("#rate-input").val().trim();
     console.log(rate);
   })
+
+
+  var now = moment().valueOf();
+  console.log(now);
+  var date = moment.unix(now).format("dddd, MMMM Do YYYY, h:mm:ss a");
+  console.log(date);
