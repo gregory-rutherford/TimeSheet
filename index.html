@@ -18,39 +18,27 @@
   </div>
 
   <div class="d-flex justify-content-center" id="displaySchedule">
-      <table>
-          <tr>
-              <th>
-                  Employee Name
-              </th>
-              <th>
-                  Role
-              </th>
-              <th>
-                  Start Date
-              </th>
-              <th>
-                  Months Worked
-              </th>
-              <th>
-                  Monthly Rate
-              </th>
-              <th>
-                  Total Earnings
-              </th>
-              <th>
 
-                    </th>
-                  </tr>
-                  <tr>
-                      <td id="name-resp"></td>
-                      <td id="role-resp"></td>
-                      <td id="date-resp"></td>
-                      <td id="rate-resp"></td>
-                      <td id="worked-resp"></td>
-                      <td id="earn-resp"></td>
-                  </tr>
-                </table>
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Employee Name</th>
+              <th scope="col">Role</th>
+              <th scope="col">Months Worked</th>
+              <th scope="col">Monthly Rate</th>
+              <th scope="col">Months Worked</th>
+              <th scope="col">Total Earnings</th> 
+            </tr>
+          </thead>
+          <tbody id="changes">
+            
+          </tbody>
+        </table>
+
+
+
+
+      
               </div>
               <div class="d-flex justify-content-center">
                 <form role="form">
@@ -71,7 +59,7 @@
                   <label for="rate-input">Monthly Rate</label>
                   <input class="form-control" id="rate-input" type="number">
                 </div>
-                <button class="btn btn-default" id="add-user" type="submit">Submit</button>
+                <button type="button" class="btn btn-dark">Submit</button>
               </form>
             </div>
           </div>
