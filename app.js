@@ -41,7 +41,10 @@ var database = firebase.database();
   // console.log(date);
  
   function makeRow (response){
-    var date = moment.unix(response.date).format("MMMM Do YYYY");
+    var date = moment.unix(response.date);
+    var current = moment();
+    var monthsDiff = current.diff(date, "months");
+    var nDate = moment.unix(response.date).format("L");
       $("#name-resp").append(`</br>
       <span>${response.name}</span>
       `);
@@ -49,10 +52,16 @@ var database = firebase.database();
       <span>${response.role}</span>
       `);
       $("#date-resp").append(`</br>
-      <span>${date}</span>
+      <span>${nDate}</span>
+      `);
+      $("#rate-resp").append(`</br>
+      <span>${response.rate}</span>
       `);
       $("#worked-resp").append(`</br>
-      <span>${response.rate}</span>
+      <span>${monthsDiff}</span>
+      `);
+      $("#earn-resp").append(`</br>
+      <span>$${(monthsDiff*response.rate)}</span>
       `);
   }
  
