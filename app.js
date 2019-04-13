@@ -10,3 +10,16 @@
   firebase.initializeApp(config);
 
   var database = firebase.database();
+
+  $(document).on("click", "#add-user", function(){
+    event.preventDefault();
+    var name = $("#name-input").val().trim();
+    console.log(name);
+    var role = $("#role-input").val().trim();
+    console.log(role);
+    var startDate = $("#startDate-input").val().trim();
+    moment(startDate, "M/D/YYYY").valueOf();
+    console.log(startDate);
+    var rate = $("#rate-input").val().trim();
+    console.log(rate);
+  })
