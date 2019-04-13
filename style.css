@@ -1,0 +1,10 @@
+.jumbotron {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+table,
+form {
+    padding: 20px;
+}
