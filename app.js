@@ -22,10 +22,41 @@ var database = firebase.database();
     console.log(startDate);
     var now = moment(startDate, "YYYY-MM-DD").unix();
      console.log(now);
-     var date = moment.unix(now).format("MMMM Do YYYY");
-    console.log(date);
+     var since = moment(startDate).fromNow();
+     console.log(since);
     var rate = $("#rate-input").val().trim();
     console.log(rate);
 
+    database.ref().push({
+      name: name,
+      role: role,
+      date: now,
+      rate: rate
+    });
   });
 
+  // var now = moment().valueOf();
+  // console.log(now);
+  // var date = moment.unix(now).format("dddd, MMMM Do YYYY, h:mm:ss a");
+  // console.log(date);
+ 
+  function makeRow (response){
+    var date = moment.unix(response.date).format("MMMM Do YYYY");
+      $("#name-resp").append(`</br>
+      <span>${response.name}</span>
+      `);
+      $("#role-resp").append(`</br>
+      <span>${response.role}</span>
+      `);
+      $("#date-resp").append(`</br>
+      <span>${date}</span>
+      `);
+      $("#worked-resp").append(`</br>
+      <span>${response.rate}</span>
+      `);
+  }
+ 
+  database.ref().on("child_added", function(childSnapshot) {
+    var response = childSnapshot.val();
+    makeRow(response);
+  });
